@@ -12,8 +12,17 @@ public class MyResponseModel {
     @PrimaryKey
     public Integer id;
     public String name;
+    public Integer lastUpdateTimeMillis;
 
     public String getName() {
         return name;
+    }
+
+    public Integer getLastUpdateTimeMillis() {
+        return lastUpdateTimeMillis;
+    }
+
+    public void setLastUpdateTimeMillis(Integer lastUpdateTimeMillis) {
+        this.lastUpdateTimeMillis = lastUpdateTimeMillis;
     }
 }

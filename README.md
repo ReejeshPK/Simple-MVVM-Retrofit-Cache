@@ -29,6 +29,10 @@ Notes:
 6. When using ViewmodelProvier(this) - see usage in fragment/activity see difference when used with
 ViewModelProvoider(getActivity()), research on it.
 
+Use this line
+ return new NetworkBoundResource<List<MyResponseModel>,List<MyResponseModel>>(AppExecutors.getInstance()){}.getAsLiveData();
+ and hit Alt+Enter to implement methods
+
 Used:
 Retrofit, Room Database, Live Data
 
