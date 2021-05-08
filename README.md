@@ -14,7 +14,18 @@ https://run.mocky.io/v3/bfc63159-1093-4a00-be39-a7b7ffc9f62b
 
 Steps:
 1. Start with the model
+2. Add Room Db annotations, add the new model to room db class
+3. Add a DAO with required queries (Remember to wrap it with Live Data < > for getting data from db.)
 
+Notes:
+1. Add Primary key / Composite key and specify index unique=true in models to prevent errors
+2. use Conflict strategy according to your needs.
+3. Think about Arraylist memory allocation if the list does not refresh / notify dataset changed does not work.
+4. For some reason private data member does not work with room db in Java here
+5. Use the Retrofit adapter and put it in your retrofit client to get response as live data
+
+Used:
+Retrofit, Room Database, Live Data
 
 Dependencies to use :
  //room db

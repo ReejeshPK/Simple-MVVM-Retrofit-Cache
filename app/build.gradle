@@ -62,7 +62,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     //for retrofit-model conversion
-    implementation 'com.google.code.gson:gson:2.8.6'
+    ///implementation 'com.google.code.gson:gson:2.8.6'
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
 
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
 }
