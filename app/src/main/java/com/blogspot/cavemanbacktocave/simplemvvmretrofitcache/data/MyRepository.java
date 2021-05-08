@@ -22,11 +22,15 @@ import java.util.List;
 
 public class MyRepository {
 
+    private MyRepository(){
+
+    }
+
     private String TAG = MyRepository.class.getSimpleName();
 
-    private MyRepository myRepository = null;
+    private static MyRepository myRepository = null;
 
-    public MyRepository getInstance() {
+    public static MyRepository getInstance() {
         if (myRepository == null) {
             myRepository = new MyRepository();
         }
@@ -100,7 +104,7 @@ public class MyRepository {
     }
 
 
-    public void printLastCalledTime(int lastRefresh, int currentTime, String funcitonName) {
+    private void printLastCalledTime(int lastRefresh, int currentTime, String funcitonName) {
 
         MyLog.d(TAG, funcitonName + "shouldFetch: last refresh: " + lastRefresh);
         MyLog.d(TAG, funcitonName + "shouldFetch: it's been " + ((currentTime - lastRefresh) / 60 / 60 / 24) +
