@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.blogspot.cavemanbacktocave.simplemvvmretrofitcache.R;
+import com.blogspot.cavemanbacktocave.simplemvvmretrofitcache.data.MyResponseModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recycler.setLayoutManager(linearLayoutManager);
 
+
+        List<MyResponseModel> myResponseModelList=new ArrayList<>();
+        MyAdapter myAdapter=new MyAdapter(myResponseModelList);
+        recycler.setAdapter(myAdapter);
 
 
     }
