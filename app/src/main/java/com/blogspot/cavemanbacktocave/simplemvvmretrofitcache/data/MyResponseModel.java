@@ -5,17 +5,17 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "my_response_table",indices = {@Index(value = "id",unique = true)})
+@Entity(tableName = "my_response_table",indices = {@Index(value = "m_id",unique = true)})
 public class MyResponseModel {
 
     @NonNull
     @PrimaryKey
-    public Integer id;
-    public String name;
+    public Integer m_id;
+    public String m_data;
     public Integer lastUpdateTimeMillis;
 
     public String getName() {
-        return name;
+        return m_data;
     }
 
     public Integer getLastUpdateTimeMillis() {

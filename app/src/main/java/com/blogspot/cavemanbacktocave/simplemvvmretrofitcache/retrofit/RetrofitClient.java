@@ -6,6 +6,7 @@ import com.blogspot.cavemanbacktocave.simplemvvmretrofitcache.retrofit.adapter.L
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -13,6 +14,11 @@ public class RetrofitClient {
     private static final long CONNECTION_TIMEOUT = 60;
     private static final long READ_TIMEOUT = 60;
     private static final long WRITE_TIMEOUT = 60;
+
+
+    private static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor()
+            .setLevel(MyConstants.IS_IN_DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
+
 
     private static OkHttpClient client = new OkHttpClient.Builder()
 
@@ -26,7 +32,7 @@ public class RetrofitClient {
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
 
             .retryOnConnectionFailure(false)
-
+            .addInterceptor(interceptor)
             .build();
 
 

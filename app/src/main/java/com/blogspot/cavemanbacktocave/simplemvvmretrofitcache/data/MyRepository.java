@@ -41,8 +41,8 @@ public class MyRepository {
         /*In case you have both different model refer :
          * https://github.com/mitchtabian/Local-db-Cache-Retrofit-REST-API-MVVM/blob/master/app/src/main/java/com/codingwithmitch/foodrecipes/repositories/RecipeRepository.java
          * */
+        MyResponseDao myResponseDao = MyRoomDb.getDatabase(context).getMyResponseDao();
         return new NetworkBoundResource<List<MyResponseModel>, List<MyResponseModel>>(AppExecutors.getInstance()) {
-            MyResponseDao myResponseDao = MyRoomDb.getDatabase(context).getMyResponseDao();
 
             @Override
             protected void saveCallResult(@NonNull List<MyResponseModel> item) {
@@ -91,14 +91,14 @@ public class MyRepository {
             @Override
             protected LiveData<List<MyResponseModel>> loadFromDb() {
                 MyLog.d(TAG, "loadFromDb:getMyResponseWithCache");
-                return RetrofitClient.getApiInterface().getMyResponseFromApi();
+                return myResponseDao.getMyTableContents();
             }
 
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<MyResponseModel>>> createCall() {
                 MyLog.d(TAG, "createCall:");
-                return null;
+                return RetrofitClient.getApiInterface().getMyResponseFromApi();
             }
         }.getAsLiveData();
     }

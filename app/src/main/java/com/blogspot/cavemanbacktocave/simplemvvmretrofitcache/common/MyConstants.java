@@ -1,7 +1,7 @@
 package com.blogspot.cavemanbacktocave.simplemvvmretrofitcache.common;
 
 public interface MyConstants {
-    public boolean IS_IN_DEBUG = false;
+    public boolean IS_IN_DEBUG = true;
     String BASE_URL = "https://run.mocky.io/v3/";
 
     Integer MVVM_CACHE_TIME_VERY_LOW_PRIORITY_DATA = 60 * 60 * 5;// 5 HR

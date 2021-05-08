@@ -43,7 +43,7 @@ Dependencies to use :
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     def lifecycle_version = "2.3.1"
-
+  def lifecycle_version_old = "2.2.0"
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     // LiveData
@@ -55,7 +55,7 @@ Dependencies to use :
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     //viewmodel provider
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version_old"
 
     //for retrofit-model conversion
     implementation 'com.google.code.gson:gson:2.8.6'

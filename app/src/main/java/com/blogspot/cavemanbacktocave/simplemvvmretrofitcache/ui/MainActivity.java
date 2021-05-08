@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.blogspot.cavemanbacktocave.simplemvvmretrofitcache.R;
 import com.blogspot.cavemanbacktocave.simplemvvmretrofitcache.data.MyResponseModel;
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         MyViewModel myViewModel=new ViewModelProvider(this).get(MyViewModel.class);
 
         RecyclerView recycler=findViewById(R.id.recycler);
+        ProgressBar progress=findViewById(R.id.progress);
         recycler.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recycler.setLayoutManager(linearLayoutManager);
@@ -42,11 +46,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Resource<List<MyResponseModel>> listResource) {
                 switch (listResource.status){
-                    case LOADING:{}
+                    case LOADING:{
+                        progress.setVisibility(View.VISIBLE);
+                    }
                         break;
-                    case SUCCESS:{}
+                    case SUCCESS:{
+                        progress.setVisibility(View.GONE);
+                        myResponseModelList.clear();
+                        myResponseModelList.addAll(listResource.data);
+                        myAdapter.notifyDataSetChanged();
+                    }
                         break;
-                    case ERROR:{}
+                    case ERROR:{
+                        progress.setVisibility(View.GONE);
+                        Toast.makeText(MainActivity.this, "Sorry, Some Error Occured", Toast.LENGTH_SHORT).show();
+                    }
                         break;
                 }
             }
