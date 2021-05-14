@@ -7,6 +7,13 @@ REST API Mocked with: https://designer.mocky.io/design
 
 GET Request: https://run.mocky.io/v3/bfc63159-1093-4a00-be39-a7b7ffc9f62b
 
+It is good to know the following concepts before setpping into MVVM:
+1. View Model
+2. Live Data
+3. Mutable Live Data, Mediator Live Data
+4. Room Database
+5. Observer pattern
+
 **Steps:**
 1. Start with the model
 1. Add Room Db annotations, add the new model to room db class
