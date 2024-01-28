@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
 
-    @GET("bfc63159-1093-4a00-be39-a7b7ffc9f62b")
+    @GET("743d8529-e94f-47d9-bcaa-450519cdebe8")
     LiveData<ApiResponse<List<MyResponseModel>>> getMyResponseFromApi();
 }
